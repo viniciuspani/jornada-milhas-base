@@ -1,0 +1,33 @@
+<app-banner src="assets/imagens/banner-login.png" alt="Banner de Login"></app-banner>
+<section class="login-component">
+  <mat-card class="login">
+    <div class="image-container">
+      <figure>
+        <img src="assets/imagens/simbolo-bussola.png" alt="Simbolo de uma bussula laranja">
+      </figure>
+    </div>
+    <div class="form-container">
+      <mat-card-header>
+        <mat-card-title>Login</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form [formGroup]="loginForm">
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input formControlName="email" matInput placeholder="Digite seu e-mail" type="email">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Senha</mat-label>
+          <input formControlName="password" matInput placeholder="Digite sua senha" type="password">
+        </mat-form-field>
+      </form>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="login()"  mat-flat-button color="primary">ACESSAR MINHA CONTA</button>
+      </mat-card-actions>
+        <p>Ainda não possui conta?
+          <a><strong><u>Clique aqui para se cadastrar</u></strong></a>
+        </p>
+    </div>
+  </mat-card>
+</section>
