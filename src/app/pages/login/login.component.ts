@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Route, Router } from '@angular/router';
 import { AutenticacaoService } from 'src/app/core/services/autenticacao.service';
 
@@ -18,8 +18,8 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      email: [null],
-      password: [null]
+      email: [null, [Validators.required, Validators.email]],
+      password: [null, Validators.required]
     })
   }
 
@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
       next: (value) => {
         console.log('Login realizado com sucesso.', value),
         this.router.navigateByUrl('/');
+        this.loginForm.reset();
       },
       error: (err) => console.log('Erro no login', err)
     });
