@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FormularioService } from 'src/app/core/services/formulario.service';
 import { UnidadeFederativa } from 'src/app/core/types/type';
+import { FormValidations } from '../form-validations';
 
 @Component({
   selector: 'app-form-base',
@@ -24,14 +25,14 @@ export class FormBaseComponent implements OnInit {
       nome: [null, Validators.required],
       nascimento: [null, [Validators.required]],
       cpf: [null, [Validators.required]],
-      cidade: [null, Validators.required],
-      email: [null, [Validators.required, Validators.email]],
-      senha: [null, [Validators.required, Validators.minLength(3)]],
+      cidade: ['city', Validators.required],
+      email: [null, [Validators.required, Validators.email, FormValidations.equalTo('email')]],
+      senha: [null, [Validators.required, Validators.minLength(3), FormValidations.equalTo('senha')]],
       genero: ['outro'],
       telefone: [null, Validators.required],
       estado: this.estadoControl,
-      confirmarEmail: [null, [Validators.required, Validators.email]],
-      confirmarSenha: [null, [Validators.required, Validators.minLength(3)]],
+      confirmarEmail: [null, [Validators.required, Validators.email, FormValidations.equalTo('email')]],
+      confirmarSenha: [null, [Validators.required, Validators.minLength(3), FormValidations.equalTo('senha')]],
       aceitarTermos: [null, [Validators.requiredTrue]]
     });
     this.formularioService.setCadastro(this.cadastroForm)

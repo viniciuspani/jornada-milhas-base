@@ -11,8 +11,6 @@ export class CadastroService {
 
   private apiUrl = environment.apiUrl;
 
-
-
   constructor(private http: HttpClient) { }
 
   cadastrar(pessoaUsuaria: PessoaUsuaria): Observable<PessoaUsuaria> {
