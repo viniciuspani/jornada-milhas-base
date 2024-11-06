@@ -24,7 +24,7 @@ export class UserService {
     this.userSbject.next(user);
   }
 
-  retonarser(){
+  retonarUser(){
     return this.userSbject.asObservable();
   }
 
