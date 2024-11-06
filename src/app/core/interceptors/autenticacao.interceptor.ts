@@ -25,3 +25,10 @@ export class AutenticacaoInterceptor implements HttpInterceptor {
         return next.handle(request);
     }
   }
+
+  // Outra forma de fazer o metodo INTERCEPT
+  // intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  //   const token = this.tokenService.getToken();
+  //   const authReq = req.clone({headers: req.headers.set('Authorization', 'Bearer ' + token)});
+  //   return next.handle(authReq);
+  // }
